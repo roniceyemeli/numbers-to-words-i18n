@@ -10,7 +10,7 @@ export interface ConversionResult {
   number: number;
 }
 
-class NumberToWords {
+class Index {
   private static readonly MAX_SAFE_NUMBER = 999999999999999;
 
   // English conversion
@@ -449,14 +449,14 @@ class NumberToWords {
 }
 
 // Export default instance
-export default NumberToWords;
+export default Index;
 
 // Export convenience functions
 export const toWords = (
   num: number,
   language: SupportedLanguage = "en"
 ): string => {
-  return NumberToWords.convert(num, { language }).words;
+  return Index.convert(num, { language }).words;
 };
 
 export const toEnglish = (num: number): string => toWords(num, "en");

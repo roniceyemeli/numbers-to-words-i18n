@@ -1,0 +1,37 @@
+{
+  "name": "number-to-words-i18n",
+  "version": "1.0.0",
+  "description": "Convert numbers to words in multiple languages (English, French, Arabic)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "jest",
+    "prepublish": "npm run build",
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "numbers",
+    "words",
+    "converter",
+    "i18n",
+    "typescript",
+    "english",
+    "french",
+    "arabic"
+  ],
+  "author": "roniceyemeli",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.4",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  }
+}

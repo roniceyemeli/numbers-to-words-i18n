@@ -3,17 +3,16 @@
  * This demonstrates how to test the library functionality
  */
 
-import NumberToWords, {
+import Index, {
   toWords,
   toEnglish,
   toFrench,
   toArabic,
-} from "./number-to-words";
+} from "./index";
 
 // Note: These are example tests. To run them, you would need Jest configured.
 // Uncomment the describe/test blocks when Jest is set up.
 
-/*
 describe('NumberToWords - English', () => {
   test('converts zero', () => {
     expect(toEnglish(0)).toBe('zero');
@@ -140,7 +139,7 @@ describe('NumberToWords - Arabic', () => {
 
 describe('NumberToWords.convert', () => {
   test('returns ConversionResult object', () => {
-    const result = NumberToWords.convert(42, { language: 'en' });
+    const result = Index.convert(42, { language: 'en' });
     expect(result).toHaveProperty('words');
     expect(result).toHaveProperty('language');
     expect(result).toHaveProperty('number');
@@ -149,12 +148,12 @@ describe('NumberToWords.convert', () => {
   });
 
   test('throws error for invalid input', () => {
-    expect(() => NumberToWords.convert(Infinity)).toThrow('Input must be a finite number');
-    expect(() => NumberToWords.convert(NaN)).toThrow('Input must be a finite number');
+    expect(() => Index.convert(Infinity)).toThrow('Input must be a finite number');
+    expect(() => Index.convert(NaN)).toThrow('Input must be a finite number');
   });
 
   test('throws error for numbers that are too large', () => {
-    expect(() => NumberToWords.convert(10e15)).toThrow('Number too large');
+    expect(() => Index.convert(10e15)).toThrow('Number too large');
   });
 });
 
@@ -169,7 +168,6 @@ describe('toWords convenience function', () => {
     expect(toWords(42)).toBe(toEnglish(42));
   });
 });
-*/
 
 // Example manual tests that can be run without Jest
 console.log("=== Number to Words Library - Manual Tests ===\n");
