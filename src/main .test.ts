@@ -10,9 +10,6 @@ import Index, {
   toArabic,
 } from "./index";
 
-// Note: These are example tests. To run them, you would need Jest configured.
-// Uncomment the describe/test blocks when Jest is set up.
-
 describe('NumberToWords - English', () => {
   test('converts zero', () => {
     expect(toEnglish(0)).toBe('zero');
