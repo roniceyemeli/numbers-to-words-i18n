@@ -1,9 +1,10 @@
 {
-  "name": "number-to-words-i18n",
-  "version": "1.0.0",
+  "name": "numbers-to-words-i18n",
+  "version": "1.0.2",
   "description": "Convert numbers to words in multiple languages (English, French, Arabic)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "tsdown",
     "test": "jest",
