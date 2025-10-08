@@ -6,6 +6,10 @@ A TypeScript library to convert numbers to words in multiple languages.
 ```bash
 npm install number-to-words-i18n
 ```
+or
+```bash
+yarn add number-to-words-i18n
+```
 ## Usage
 ```bash
 import { toEnglish, toFrench, toArabic } from 'number-to-words-ts';
