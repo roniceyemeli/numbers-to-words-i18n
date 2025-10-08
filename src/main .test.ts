@@ -3,12 +3,7 @@
  * This demonstrates how to test the library functionality
  */
 
-import Index, {
-  toWords,
-  toEnglish,
-  toFrench,
-  toArabic,
-} from "./index";
+import Index, {ENUM_LANGUAGE, toArabic, toEnglish, toFrench, toWords,} from "./index";
 
 describe('NumberToWords - English', () => {
   test('converts zero', () => {
@@ -136,7 +131,7 @@ describe('NumberToWords - Arabic', () => {
 
 describe('NumberToWords.convert', () => {
   test('returns ConversionResult object', () => {
-    const result = Index.convert(42, { language: 'en' });
+    const result = Index.convert(42, { language: ENUM_LANGUAGE.EN })
     expect(result).toHaveProperty('words');
     expect(result).toHaveProperty('language');
     expect(result).toHaveProperty('number');
@@ -156,13 +151,20 @@ describe('NumberToWords.convert', () => {
 
 describe('toWords convenience function', () => {
   test('works with all languages', () => {
-    expect(toWords(42, 'en')).toBe(toEnglish(42));
-    expect(toWords(42, 'fr')).toBe(toFrench(42));
-    expect(toWords(42, 'ar')).toBe(toArabic(42));
+    expect(toWords(42, ENUM_LANGUAGE.EN)).toBe(toEnglish(42));
+    expect(toWords(42, ENUM_LANGUAGE.FR)).toBe(toFrench(42));
+    expect(toWords(42, ENUM_LANGUAGE.AR)).toBe(toArabic(42));
   });
 
   test('defaults to English', () => {
     expect(toWords(42)).toBe(toEnglish(42));
+  });
+  test('handles very large numbers', () => {
+    expect(() => toEnglish(Number.MAX_SAFE_INTEGER + 1)).toThrow();
+  });
+
+  test('handles floating point precision', () => {
+    expect(toEnglish(0.1 + 0.2)).toContain('point three');
   });
 });
 
