@@ -3,168 +3,228 @@
  * This demonstrates how to test the library functionality
  */
 
-import Index, {ENUM_LANGUAGE, toArabic, toEnglish, toFrench, toWords,} from "./index";
+import Index, {
+  ENUM_LANGUAGE,
+  toArabic,
+  toEnglish,
+  toFrench,
+  toSpanish,
+  toWords,
+} from "./lang";
 
-describe('NumberToWords - English', () => {
-  test('converts zero', () => {
-    expect(toEnglish(0)).toBe('zero');
+describe("NumberToWords - English", () => {
+  test("converts zero", () => {
+    expect(toEnglish(0)).toBe("zero");
   });
 
-  test('converts single digits', () => {
-    expect(toEnglish(1)).toBe('one');
-    expect(toEnglish(5)).toBe('five');
-    expect(toEnglish(9)).toBe('nine');
+  test("converts single digits", () => {
+    expect(toEnglish(1)).toBe("one");
+    expect(toEnglish(5)).toBe("five");
+    expect(toEnglish(9)).toBe("nine");
   });
 
-  test('converts teens', () => {
-    expect(toEnglish(10)).toBe('ten');
-    expect(toEnglish(13)).toBe('thirteen');
-    expect(toEnglish(19)).toBe('nineteen');
+  test("converts teens", () => {
+    expect(toEnglish(10)).toBe("ten");
+    expect(toEnglish(13)).toBe("thirteen");
+    expect(toEnglish(19)).toBe("nineteen");
   });
 
-  test('converts tens', () => {
-    expect(toEnglish(20)).toBe('twenty');
-    expect(toEnglish(42)).toBe('forty-two');
-    expect(toEnglish(99)).toBe('ninety-nine');
+  test("converts tens", () => {
+    expect(toEnglish(20)).toBe("twenty");
+    expect(toEnglish(42)).toBe("forty-two");
+    expect(toEnglish(99)).toBe("ninety-nine");
   });
 
-  test('converts hundreds', () => {
-    expect(toEnglish(100)).toBe('one hundred');
-    expect(toEnglish(123)).toBe('one hundred twenty-three');
-    expect(toEnglish(999)).toBe('nine hundred ninety-nine');
+  test("converts hundreds", () => {
+    expect(toEnglish(100)).toBe("one hundred");
+    expect(toEnglish(123)).toBe("one hundred twenty-three");
+    expect(toEnglish(999)).toBe("nine hundred ninety-nine");
   });
 
-  test('converts thousands', () => {
-    expect(toEnglish(1000)).toBe('one thousand');
-    expect(toEnglish(1234)).toBe('one thousand two hundred thirty-four');
+  test("converts thousands", () => {
+    expect(toEnglish(1000)).toBe("one thousand");
+    expect(toEnglish(1234)).toBe("one thousand two hundred thirty-four");
   });
 
-  test('converts millions', () => {
-    expect(toEnglish(1000000)).toBe('one million');
-    expect(toEnglish(1234567)).toBe('one million two hundred thirty-four thousand five hundred sixty-seven');
+  test("converts millions", () => {
+    expect(toEnglish(1000000)).toBe("one million");
+    expect(toEnglish(1234567)).toBe(
+      "one million two hundred thirty-four thousand five hundred sixty-seven"
+    );
   });
 
-  test('converts negative numbers', () => {
-    expect(toEnglish(-42)).toBe('negative forty-two');
-    expect(toEnglish(-1234)).toBe('negative one thousand two hundred thirty-four');
+  test("converts negative numbers", () => {
+    expect(toEnglish(-42)).toBe("negative forty-two");
+    expect(toEnglish(-1234)).toBe(
+      "negative one thousand two hundred thirty-four"
+    );
   });
 
-  test('converts decimal numbers', () => {
-    expect(toEnglish(3.14)).toBe('three point one four');
-    expect(toEnglish(0.5)).toBe('zero point five');
-  });
-});
-
-describe('NumberToWords - French', () => {
-  test('converts zero', () => {
-    expect(toFrench(0)).toBe('zéro');
-  });
-
-  test('converts single digits', () => {
-    expect(toFrench(1)).toBe('un');
-    expect(toFrench(5)).toBe('cinq');
-    expect(toFrench(9)).toBe('neuf');
-  });
-
-  test('converts special French numbers', () => {
-    expect(toFrench(70)).toBe('soixante-dix');
-    expect(toFrench(80)).toBe('quatre-vingts');
-    expect(toFrench(90)).toBe('quatre-vingt-dix');
-  });
-
-  test('converts hundreds', () => {
-    expect(toFrench(100)).toBe('cent');
-    expect(toFrench(200)).toBe('deux cents');
-    expect(toFrench(201)).toBe('deux cent un');
-  });
-
-  test('converts thousands', () => {
-    expect(toFrench(1000)).toBe('mille');
-    expect(toFrench(2000)).toBe('deux mille');
-  });
-
-  test('converts millions', () => {
-    expect(toFrench(1000000)).toBe('un million');
-    expect(toFrench(2000000)).toBe('deux millions');
-  });
-
-  test('converts negative numbers', () => {
-    expect(toFrench(-42)).toBe('moins quarante-deux');
+  test("converts decimal numbers", () => {
+    expect(toEnglish(3.14)).toBe("three point one four");
+    expect(toEnglish(0.5)).toBe("zero point five");
   });
 });
 
-describe('NumberToWords - Arabic', () => {
-  test('converts zero', () => {
-    expect(toArabic(0)).toBe('صفر');
+describe("NumberToWords - French", () => {
+  test("converts zero", () => {
+    expect(toFrench(0)).toBe("zéro");
   });
 
-  test('converts single digits', () => {
-    expect(toArabic(1)).toBe('واحد');
-    expect(toArabic(5)).toBe('خمسة');
-    expect(toArabic(9)).toBe('تسعة');
+  test("converts single digits", () => {
+    expect(toFrench(1)).toBe("un");
+    expect(toFrench(5)).toBe("cinq");
+    expect(toFrench(9)).toBe("neuf");
   });
 
-  test('converts tens', () => {
-    expect(toArabic(10)).toBe('عشرة');
-    expect(toArabic(20)).toBe('عشرون');
+  test("converts special French numbers", () => {
+    expect(toFrench(70)).toBe("soixante-dix");
+    expect(toFrench(80)).toBe("quatre-vingts");
+    expect(toFrench(90)).toBe("quatre-vingt-dix");
   });
 
-  test('converts hundreds', () => {
-    expect(toArabic(100)).toBe('مائة');
-    expect(toArabic(200)).toBe('مئتان');
+  test("converts hundreds", () => {
+    expect(toFrench(100)).toBe("cent");
+    expect(toFrench(200)).toBe("deux cents");
+    expect(toFrench(201)).toBe("deux cent un");
   });
 
-  test('converts thousands', () => {
-    expect(toArabic(1000)).toBe('ألف');
-    expect(toArabic(2000)).toBe('ألفان');
+  test("converts thousands", () => {
+    expect(toFrench(1000)).toBe("mille");
+    expect(toFrench(2000)).toBe("deux mille");
   });
 
-  test('converts millions', () => {
-    expect(toArabic(1000000)).toBe('مليون');
-    expect(toArabic(2000000)).toBe('مليونان');
+  test("converts millions", () => {
+    expect(toFrench(1000000)).toBe("un million");
+    expect(toFrench(2000000)).toBe("deux millions");
   });
 
-  test('converts negative numbers', () => {
-    expect(toArabic(-42)).toContain('سالب');
+  test("converts negative numbers", () => {
+    expect(toFrench(-42)).toBe("moins quarante-deux");
   });
 });
 
-describe('NumberToWords.convert', () => {
-  test('returns ConversionResult object', () => {
-    const result = Index.convert(42, { language: ENUM_LANGUAGE.EN })
-    expect(result).toHaveProperty('words');
-    expect(result).toHaveProperty('language');
-    expect(result).toHaveProperty('number');
-    expect(result.language).toBe('en');
+describe("NumberToWords - Arabic", () => {
+  test("converts zero", () => {
+    expect(toArabic(0)).toBe("صفر");
+  });
+
+  test("converts single digits", () => {
+    expect(toArabic(1)).toBe("واحد");
+    expect(toArabic(5)).toBe("خمسة");
+    expect(toArabic(9)).toBe("تسعة");
+  });
+
+  test("converts tens", () => {
+    expect(toArabic(10)).toBe("عشرة");
+    expect(toArabic(20)).toBe("عشرون");
+  });
+
+  test("converts hundreds", () => {
+    expect(toArabic(100)).toBe("مائة");
+    expect(toArabic(200)).toBe("مئتان");
+  });
+
+  test("converts thousands", () => {
+    expect(toArabic(1000)).toBe("ألف");
+    expect(toArabic(2000)).toBe("ألفان");
+  });
+
+  test("converts millions", () => {
+    expect(toArabic(1000000)).toBe("مليون");
+    expect(toArabic(2000000)).toBe("مليونان");
+  });
+
+  test("converts negative numbers", () => {
+    expect(toArabic(-42)).toContain("سالب");
+  });
+});
+
+describe("NumberToWords - Spanish", () => {
+  test("converts zero", () => {
+    expect(toSpanish(0)).toBe("cero");
+  });
+
+  test("converts single digits", () => {
+    expect(toSpanish(1)).toBe("uno");
+    expect(toSpanish(5)).toBe("cinco");
+    expect(toSpanish(9)).toBe("nueve");
+  });
+
+  test("converts teens and veinti forms", () => {
+    expect(toSpanish(10)).toBe("diez");
+    expect(toSpanish(16)).toBe("dieciséis");
+    expect(toSpanish(21)).toBe("veintiuno");
+    expect(toSpanish(22)).toBe("veintidós");
+    expect(toSpanish(23)).toBe("veintitrés");
+    expect(toSpanish(26)).toBe("veintiséis");
+  });
+
+  test("converts tens with conjunction", () => {
+    expect(toSpanish(30)).toBe("treinta");
+    expect(toSpanish(31)).toBe("treinta y uno");
+    expect(toSpanish(42)).toBe("cuarenta y dos");
+    expect(toSpanish(99)).toBe("noventa y nueve");
+  });
+
+  test("converts hundreds", () => {
+    expect(toSpanish(100)).toBe("cien");
+    expect(toSpanish(101)).toBe("ciento uno");
+    expect(toSpanish(200)).toBe("doscientos");
+    expect(toSpanish(256)).toBe("doscientos cincuenta y seis");
+  });
+
+  test("converts thousands and millions", () => {
+    expect(toSpanish(1000)).toBe("mil");
+    expect(toSpanish(2000)).toBe("dos mil");
+    expect(toSpanish(1_000_000)).toBe("un millón");
+    expect(toSpanish(2_000_000)).toBe("dos millones");
+  });
+
+  test("converts negative numbers", () => {
+    expect(toSpanish(-42)).toBe("menos cuarenta y dos");
+  });
+});
+
+describe("NumberToWords.convert", () => {
+  test("returns ConversionResult object", () => {
+    const result = Index.convert(42, { language: ENUM_LANGUAGE.EN });
+    expect(result).toHaveProperty("words");
+    expect(result).toHaveProperty("language");
+    expect(result).toHaveProperty("number");
+    expect(result.language).toBe("en");
     expect(result.number).toBe(42);
   });
 
-  test('throws error for invalid input', () => {
-    expect(() => Index.convert(Infinity)).toThrow('Input must be a finite number');
-    expect(() => Index.convert(NaN)).toThrow('Input must be a finite number');
+  test("throws error for invalid input", () => {
+    expect(() => Index.convert(Infinity)).toThrow(
+      "Input must be a finite number"
+    );
+    expect(() => Index.convert(NaN)).toThrow("Input must be a finite number");
   });
 
-  test('throws error for numbers that are too large', () => {
-    expect(() => Index.convert(10e15)).toThrow('Number too large');
+  test("throws error for numbers that are too large", () => {
+    expect(() => Index.convert(10e15)).toThrow("Number too large");
   });
 });
 
-describe('toWords convenience function', () => {
-  test('works with all languages', () => {
+describe("toWords convenience function", () => {
+  test("works with all languages", () => {
     expect(toWords(42, ENUM_LANGUAGE.EN)).toBe(toEnglish(42));
     expect(toWords(42, ENUM_LANGUAGE.FR)).toBe(toFrench(42));
     expect(toWords(42, ENUM_LANGUAGE.AR)).toBe(toArabic(42));
+    expect(toWords(42, ENUM_LANGUAGE.ES)).toBe(toSpanish(42));
   });
 
-  test('defaults to English', () => {
+  test("defaults to English", () => {
     expect(toWords(42)).toBe(toEnglish(42));
   });
-  test('handles very large numbers', () => {
+  test("handles very large numbers", () => {
     expect(() => toEnglish(Number.MAX_SAFE_INTEGER + 1)).toThrow();
   });
 
-  test('handles floating point precision', () => {
-    expect(toEnglish(0.1 + 0.2)).toContain('point three');
+  test("handles floating point precision", () => {
+    expect(toEnglish(0.1 + 0.2)).toContain("point three");
   });
 });
 
